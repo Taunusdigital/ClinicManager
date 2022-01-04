@@ -8,22 +8,24 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClinicManager.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body id="application-body">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav id="navigation" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ClinicManager</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/img/daisy.svg" style="height: 52px;"/>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                    <ul class="navbar-nav flex-grow-1 ms-2">
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-white fs-5" asp-area="" asp-page="/Index">Termine</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-white fs-5" asp-area="" asp-page="/Privacy">Praxis</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -31,7 +33,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div id="main-container-fluid" class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

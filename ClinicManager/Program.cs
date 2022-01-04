@@ -2,6 +2,11 @@ using ClinicManager.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+// Localisation
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +18,25 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    CultureInfo[] supporterCultures = new[]
+    {
+        new CultureInfo("en"),
+        new CultureInfo("de"),
+        new CultureInfo("fr"),
+        new CultureInfo("it")
+    };
+    options.DefaultRequestCulture = new RequestCulture("de");
+    options.SupportedCultures = supporterCultures;
+    options.SupportedUICultures = supporterCultures;
+});
+
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
 
 var app = builder.Build();
 
@@ -31,6 +55,7 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseRequestLocalization();
 
 app.UseAuthentication();
 app.UseAuthorization();

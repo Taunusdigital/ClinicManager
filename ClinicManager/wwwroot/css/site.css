@@ -16,3 +16,21 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#navigation {
+    background-color: #b6d43f;
+}
+
+#nav-account-management > li > a.active {
+    background-color: #b6d43f;
+    color: white!important;
+}
+
+#application-body .btn-tcm {
+    background-color: #b6d43f;
+    color: white;
+}
+
+#main-container-fluid {
+    padding: 0;
+}

@@ -9,16 +9,17 @@
     }
 }
 
-<h1>Manage your account</h1>
-
-<div>
-    <h2>Change your account settings</h2>
-    <hr />
+<div class="container pt-3">
+    <div>
+        <h1 class="display-5 text-center">Account verwalten</h1>
+        <p class="fs-5 mt-5">Verwalten Sie Ihre Benutzerdaten, Termine, etc.
+    </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-xl-4 mt-3">
+            <hr />
             <partial name="_ManageNav" />
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6 offset-md-1 col-xl-7 offset-xl-1">
             @RenderBody()
         </div>
     </div>
