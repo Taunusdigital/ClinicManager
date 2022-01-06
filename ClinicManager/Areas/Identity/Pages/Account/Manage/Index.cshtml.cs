@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ClinicManager.Data;
+using ClinicManager.Models;
 
 namespace ClinicManager.Areas.Identity.Pages.Account.Manage
 {
@@ -60,16 +62,19 @@ namespace ClinicManager.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
+        // public string Firstname { get; set; }
+
         private async Task LoadAsync(IdentityUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
             Username = userName;
+            // Firstname = user.FirstName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber                
             };
         }
 
@@ -111,7 +116,7 @@ namespace ClinicManager.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Ihr Profil wurde aktualisiert!";
             return RedirectToPage();
         }
     }

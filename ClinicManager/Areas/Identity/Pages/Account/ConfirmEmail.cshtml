@@ -4,5 +4,10 @@
     ViewData["Title"] = "Confirm email";
 }
 
-<h1>@ViewData["Title"]</h1>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="container pt-3">
+    <div>
+        <h1 class="display-5 text-center">E-Mail bestätigt!</h1>
+        <p class="fs-5 mt-5">Vielen Dank für die Bestätigung Ihrer E-Mailadresse. Sie können sich nun in den geschützen Bereich  <a asp-area="Identity" asp-page="/Account/Login">anmelden</a>. 
+    </div>
+</div>
